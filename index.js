@@ -1,4 +1,4 @@
-const PORT = 8080; // 监听端口
+const PORT = 1230; // 监听端口
 const WebSocket = require("ws"); // 引入 ws 库
 const express = require('express')
 const app = express()
@@ -19,6 +19,7 @@ wss.broadcastToElse = function broadcast(data, ws) {
 
 /* 客户端接入，触发 connection */
 wss.on("connection", function connection(ws, req) {
+    console.log(1)
   let ip = req.connection.remoteAddress; // 通过req对象可以获得客户端信息，比如：ip，headers等
   /* 客户端发送消息，触发 message */
   ws.on("message", function incoming(message) {
